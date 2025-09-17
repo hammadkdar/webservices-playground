@@ -44,8 +44,8 @@ public class WebServiceConfig {
         webServiceTemplate.setUnmarshaller(marshaller);
         webServiceTemplate.setDefaultUri(defaultUri);
 
-        // Set message sender
-        HttpUrlConnectionMessageSender messageSender = new HttpUrlConnectionMessageSender();
+        // Use custom message sender with enhanced logging capabilities
+        LoggingHttpUrlConnectionMessageSender messageSender = new LoggingHttpUrlConnectionMessageSender();
         messageSender.setConnectionTimeout(Duration.ofSeconds(30)); // 30 seconds
         messageSender.setReadTimeout(Duration.ofSeconds(60)); // 60 seconds
         webServiceTemplate.setMessageSender(messageSender);
